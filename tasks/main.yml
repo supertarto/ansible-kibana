@@ -6,33 +6,6 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Create Configuration Directory
-  file:
-    path: "{{ kibana_conf_dir }}"
-    state: directory
-    owner: root
-    group: "{{ kibana_group }}"
-    mode: "2750"
-
-- name: Create PID Directory
-  file:
-    path: "{{ kibana_pid_dir }}"
-    state: directory
-    owner: "{{ kibana_user }}"
-    group: "{{ kibana_group }}"
-    mode: "0755"
-
-- name: Create Data and logs directories
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ kibana_user }}"
-    group: "{{ kibana_group }}"
-    mode: "0755"
-  with_items:
-    - "{{ kibana_log_dir }}"
-    - "{{ kibana_data_dir }}"
-
 - name: Copy Configuration File
   template:
     src: kibana.yml.j2

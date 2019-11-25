@@ -14,8 +14,6 @@ kibana_group: root
 kibana_conf_dir: "/etc/kibana"
 kibana_pid_dir: "/var/run"
 kibana_log_dir: "/var/log/kibana"
-kibana_data_dir: "/var/lib/kibana"
-kibana_home: "/usr/share/kibana"
 
 kibana_server_host: "localhost"
 kibana_server_port: 5601
