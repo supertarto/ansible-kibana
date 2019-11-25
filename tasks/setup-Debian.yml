@@ -1,0 +1,32 @@
+---
+- name: Install pre-requisite (Debian)
+  package:
+    name: [ca-certificates, apt-transport-https, curl]
+    state: present
+
+- name: Add Kibana repository key (Debian)
+  apt_key:
+    url: '{{ kibana_apt_key }}'
+    id: '{{ kibana_apt_key_id }}'
+    state: present
+
+- name: Add kibana repository (Debian)
+  apt_repository:
+    repo: '{{ kibana_apt_url }}'
+    state: present
+
+- name: Ensure kibana is installed (Debian)
+  apt:
+    name: '{{ kibana_package_name }}{% if kibana_version is defined %}={{ kibana_version }}{% endif %}'
+    state: present
+    allow_unauthenticated: "{{ 'no' if kibana_apt_key else 'yes' }}"
+    cache_valid_time: 86400
+  register: kibana_debian_install_from_repo
+  notify:
+    - Restart kibana
+
+- name: Hold kibana version (Debian)
+  dpkg_selections:
+    name: "{{ kibana_package_name }}"
+    selection: "hold"
+  when: kibana_version_lock

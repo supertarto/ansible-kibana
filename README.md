@@ -1,4 +1,5 @@
 # ansible-role-template
+[![Build Status](https://travis-ci.org/supertarto/ansible-kibana.svg?branch=master)](https://travis-ci.org/supertarto/ansible-kibana)
 
 
 ## Tested plateform

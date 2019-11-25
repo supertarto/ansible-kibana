@@ -1,2 +1,44 @@
 ---
+- name: Set kibana_major_version
+  set_fact: "kibana_major_version={{ kibana_version.split('.')[0] }}.x"
+  when: kibana_major_version is undefined
 
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Create Configuration Directory
+  file:
+    path: "{{ kibana_conf_dir }}"
+    state: directory
+    owner: root
+    group: "{{ kibana_group }}"
+    mode: "2750"
+
+- name: Create PID Directory
+  file:
+    path: "{{ kibana_pid_dir }}"
+    state: directory
+    owner: "{{ kibana_user }}"
+    group: "{{ kibana_group }}"
+    mode: "0755"
+
+- name: Create Data and logs directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ kibana_user }}"
+    group: "{{ kibana_group }}"
+    mode: "2750"
+  with_items:
+    - "{{ kibana_log_dir }}"
+    - "{{ kibana_data_dir }}"
+
+- name: Copy Configuration File
+  template:
+    src: kibana.yml.j2
+    dest: "{{ kibana_conf_dir }}/kibana.yml"
+    owner: root
+    group: "{{ kibana_group }}"
+    mode: "0660"
+    force: true
+  notify: Restart kibana
