@@ -28,7 +28,7 @@
     state: directory
     owner: "{{ kibana_user }}"
     group: "{{ kibana_group }}"
-    mode: "2750"
+    mode: "0755"
   with_items:
     - "{{ kibana_log_dir }}"
     - "{{ kibana_data_dir }}"
