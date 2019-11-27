@@ -59,7 +59,7 @@ kibana_logging_verbose: false
 
 ## Installation
 ```
-ansible-galaxy install supertarto.
+ansible-galaxy install supertarto.kibana
 ```
 ## License
 GPL V3.0
