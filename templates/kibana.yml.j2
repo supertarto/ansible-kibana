@@ -83,7 +83,10 @@ elasticsearch.password: {{ kibana_elasticsearch_password }}
 #elasticsearch.startupTimeout: 5000
 
 # Specifies the path where Kibana creates the process ID file.
+#pid.file: /var/run/kibana.pid
+{%if kibana_pid_dir is defined %}
 pid.file: {{ kibana_pid_dir }}/kibana.pid
+{% endif %}
 
 # Enables you specify a file where Kibana stores log output.
 #logging.dest: stdout

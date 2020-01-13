@@ -23,15 +23,14 @@ Set to True if you want to set the package on hold, to prevent unwanted upgrade.
 ```yml
 kibana_version_lock: false
 ```
-The kibana group and some important directories path.
+The kibana group and some important directories path. By default, **kibana_pid_dir** is not set.
 ```yml
 kibana_group: root
 
 kibana_conf_dir: "/etc/kibana"
-kibana_pid_dir: "/var/run"
-kibana_log_dir: "/var/log/kibana"
+# kibana_pid_dir: "/var/run"
 ```
-Variables used in kibana.yml. 
+Variables used in kibana.yml. By default, **kibana_elasticsearch_username** and **kibana_elasticsearch_password** are not set.
 ```yml
 kibana_server_host: "localhost"
 kibana_server_port: 5601
@@ -39,9 +38,9 @@ kibana_elasticsearch_url: "http://localhost:9200"
 kibana_elasticsearch_preserve_host: true
 kibana_index_name: ".kibana"
 kibana_default_app_id: "discover"
-kibana_elasticsearch_username: []
-kibana_elasticsearch_password: []
-kibana_logging_dest: "{{ kibana_log_dir }}/kibana.log"
+# kibana_elasticsearch_username: []
+# kibana_elasticsearch_password: []
+kibana_logging_dest: "stdout"
 kibana_logging_silent: false
 kibana_logging_quiet: false
 kibana_logging_verbose: false

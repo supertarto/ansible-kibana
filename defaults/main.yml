@@ -12,7 +12,7 @@ kibana_user: root
 kibana_group: root
 
 kibana_conf_dir: "/etc/kibana"
-kibana_pid_dir: "/var/run"
+# kibana_pid_dir: "/var/run"
 
 kibana_server_host: "localhost"
 kibana_server_port: 5601
