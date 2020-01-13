@@ -12,6 +12,6 @@
     dest: "{{ kibana_conf_dir }}/kibana.yml"
     owner: root
     group: "{{ kibana_group }}"
-    mode: "0660"
+    mode: "0644"
     force: true
   notify: Restart kibana
