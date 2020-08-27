@@ -27,7 +27,6 @@ kibana_version_lock: false
 ```
 The kibana group and some important directories path. By default, **kibana_pid_dir** is not set.
 ```yml
-kibana_group: root
 
 kibana_conf_dir: "/etc/kibana"
 # kibana_pid_dir: "/var/run"
