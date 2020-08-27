@@ -22,9 +22,7 @@
     state: present
     allow_unauthenticated: "{{ 'no' if kibana_apt_key else 'yes' }}"
     cache_valid_time: 86400
-  register: kibana_debian_install_from_repo
-  notify:
-    - Restart kibana
+  notify: Restart kibana
 
 - name: Hold kibana version (Debian)
   dpkg_selections:

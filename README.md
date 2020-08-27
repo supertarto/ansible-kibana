@@ -3,6 +3,8 @@
 
 Install and configure Kibana with Ansible. It's meant to be used with elasticsearch (supertarto.elasticsearch role on Galaxy). For Debian only, the installation use the elasticsearch repository.
 
+Tested with 7.9.0
+
 ## Requirements
 None, but can be used with Elasticsearch.
 
@@ -12,7 +14,7 @@ None, but can be used with Elasticsearch.
 ## Role variables
 Kibana version, and informations used during the installation.
 ```yml
-kibana_version: "7.4.1"
+kibana_version: "7.9.0"
 kibana_repo_base: "https://artifacts.elastic.co"
 kibana_apt_key: "{{ kibana_repo_base }}/GPG-KEY-elasticsearch"
 kibana_apt_key_id: "46095ACC8548582C1A2699A9D27D666CD88E42B4"
