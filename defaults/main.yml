@@ -8,6 +8,8 @@ kibana_package_name: "kibana"
 
 kibana_version_lock: false
 
+kibana_group: root
+
 kibana_conf_dir: "/etc/kibana"
 # kibana_pid_dir: "/var/run"
 
