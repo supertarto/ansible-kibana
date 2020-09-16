@@ -1,5 +1,5 @@
 # Ansible Kibana
-[![Build Status](https://travis-ci.org/supertarto/ansible-kibana.svg?branch=master)](https://travis-ci.org/supertarto/ansible-kibana)
+[![Build Status](https://travis-ci.com/supertarto/ansible-kibana.svg?branch=master)](https://travis-ci.com/supertarto/ansible-kibana)
 
 Install and configure Kibana with Ansible. It's meant to be used with elasticsearch (supertarto.elasticsearch role on Galaxy). For Debian only, the installation use the elasticsearch repository.
 
